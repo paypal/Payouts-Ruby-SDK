@@ -11,6 +11,9 @@ describe PayoutsGetRequest do
     expect(create_response.status_code).to eq(201)
     resp = PayoutsHelper::get_payouts(create_response.result.batch_header.payout_batch_id)
 
+    puts 'Retrieve a Payouts Batch details'
+    puts resp.status_code
+    puts resp.result
     expect(resp.status_code).to eq(200)
     expect(resp.result).not_to be_nil
 

@@ -10,6 +10,10 @@ describe PayoutsItemGetRequest do
     create_response = PayoutsHelper::create_payouts()
     expect(create_response.status_code).to eq(201)
     get_response = PayoutsHelper::get_payouts(create_response.result.batch_header.payout_batch_id)
+
+    puts 'Retrieve a Payout item details'
+    puts get_response
+
     expect(get_response.status_code).to eq(200)
     resp = PayoutsHelper::get_payouts_item(get_response.result.items[0].payout_item_id)
 

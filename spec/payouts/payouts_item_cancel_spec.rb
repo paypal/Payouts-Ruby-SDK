@@ -7,6 +7,7 @@ include PaypalPayoutsSdk::Payouts
 describe PayoutsItemCancelRequest do
 
   it 'Cancel an unclaimed Payout item' do
+    puts 'Cancel an unclaimed Payout item'
     create_response = PayoutsHelper::create_payouts()
     expect(create_response.status_code).to eq(201)
     get_response = PayoutsHelper::get_payouts(create_response.result.batch_header.payout_batch_id)
@@ -20,6 +21,7 @@ describe PayoutsItemCancelRequest do
       if get_response.result.batch_header.batch_status == 'SUCCESS'
         resp = PayoutsHelper::cancel_payouts_item(get_response.result.items[0].payout_item_id)
 
+        puts resp
         expect(resp.status_code).to eq(200)
         expect(resp.result).not_to be_nil
 
