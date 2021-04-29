@@ -1,4 +1,4 @@
-# PayPal Payouts API SDK for Ruby
+# PayPal Payouts API SDK for Ruby 
 
 ![PayPal Developer](homepage.jpg)
 
